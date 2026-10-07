@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wedding Photo Finder</title>
+
+    <meta
+        name="description"
+        content="Find your beautiful wedding moments with Wedding Photo Finder."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
+    <header class="site-header">
+        <nav class="navbar container">
+
+            <a href="#home" class="logo">
+                <span class="logo-mark">W</span>
+                <span>Wedding Photo Finder</span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation"
+            >
+                ☰
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#guest">Guest</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#photographer">Photographer</a>
+                <a href="#dashboard">Dashboard</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- =========================================
+             HOME PAGE
+        ========================================== -->
+
+        <section id="home" class="page-section hero-section">
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content container">
+
+                <span class="eyebrow">YOUR WEDDING • YOUR MEMORIES</span>
+
+                <h1>
+                    Find Your
+                    <em>Wedding Photos</em>
+                </h1>
+
+                <p>
+                    Your moments. Your memories. Your photos.
+                    Discover the beautiful moments captured during
+                    your special day.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#guest" class="btn btn-primary">
+                        I'm a Guest
+                    </a>
+
+                    <a href="#photographer" class="btn btn-outline">
+                        Photographer
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="scroll-indicator">
+                <span>Scroll to explore</span>
+                <span>↓</span>
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             GUEST PAGE
+        ========================================== -->
+
+        <section id="guest" class="page-section guest-section">
+
+            <div class="container guest-layout">
+
+                <div class="guest-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85"
+                        alt="Elegant wedding couple"
+                    >
+                </div>
+
+                <div class="guest-content">
+
+                    <span class="eyebrow">WELCOME</span>
+
+                    <h2>
+                        Welcome to the
+                        <em>Wedding</em>
+                    </h2>
+
+                    <p class="lead">
+                        Find your photos
+                    </p>
+
+                    <p>
+                        Take a selfie and discover the beautiful
+                        moments captured by our photographer.
+                    </p>
+
+                    <div class="guest-actions">
+
+                        <a href="#selfie" class="btn btn-primary">
+                            Take a Selfie
+                        </a>
+
+                        <button
+                            class="btn btn-secondary"
+                            id="guestUploadButton"
+                        >
+                            Upload Selfie
+                        </button>
+
+                        <input
+                            type="file"
+                            id="guestUploadInput"
+                            accept="image/*"
+                            hidden
+                        >
+
+                    </div>
+
+                    <div class="feature-list">
+
+                        <div class="feature-item">
+                            <span class="feature-icon">01</span>
+                            <div>
+                                <strong>Take a selfie</strong>
+                                <p>Use your phone camera.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-icon">02</span>
+                            <div>
+                                <strong>Find your moments</strong>
+                                <p>Your photos will be matched.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-icon">03</span>
+                            <div>
+                                <strong>Enjoy your memories</strong>
+                                <p>View and download your photos.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SELFIE PAGE
+        ========================================== -->
+
+        <section id="selfie" class="page-section selfie-section">
+
+            <div class="container narrow-container">
+
+                <div class="section-heading centered">
+
+                    <span class="eyebrow">PHOTO MATCHING</span>
+
+                    <h2>
+                        Take Your
+                        <em>Selfie</em>
+                    </h2>
+
+                    <p>
+                        Take a clear photo of your face so we can
+                        find your wedding photos.
+                    </p>
+
+                </div>
+
+
+                <div class="selfie-card">
+
+                    <div class="camera-container">
+
+                        <video
+                            id="cameraPreview"
+                            autoplay
+                            playsinline
+                            muted
+                        ></video>
+
+                        <div
+                            class="camera-placeholder"
+                            id="cameraPlaceholder"
+                        >
+                            <div class="camera-icon">
+                                ◉
+                            </div>
+
+                            <p>
+                                Camera preview
+                            </p>
+
+                            <small>
+                                Camera access can be enabled when
+                                hosted on a secure website.
+                            </small>
+                        </div>
+
+                        <div class="face-guide"></div>
+
+                    </div>
+
+
+                    <div class="selfie-controls">
+
+                        <button
+                            class="btn btn-primary btn-large"
+                            id="takeSelfieButton"
+                        >
+                            Take Selfie
+                        </button>
+
+                        <button
+                            class="btn btn-secondary btn-large"
+                            id="selfieUploadButton"
+                        >
+                            Upload Photo
+                        </button>
+
+                        <input
+                            type="file"
+                            id="selfieUploadInput"
+                            accept="image/*"
+                            hidden
+                        >
+
+                        <button
+                            class="btn btn-dark btn-large"
+                            id="continueButton"
+                        >
+                            Continue
+                        </button>
+
+                    </div>
+
+                    <div
+                        class="selfie-preview"
+                        id="selfiePreview"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             GALLERY PAGE
+        ========================================== -->
+
+        <section id="gallery" class="page-section gallery-section">
+
+            <div class="container">
+
+                <div class="section-heading gallery-heading">
+
+                    <div>
+                        <span class="eyebrow">YOUR MEMORIES</span>
+
+                        <h2>
+                            Your Wedding
+                            <em>Photos</em>
+                        </h2>
+                    </div>
+
+                    <p>
+                        We found these moments for you.
+                    </p>
+
+                </div>
+
+
+                <div class="gallery-grid">
+
+                    <article class="photo-card">
+
+                        <div class="photo-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85"
+                                alt="Wedding couple"
+                            >
+                        </div>
+
+                        <div class="photo-info">
+                            <span>Wedding Moment 01</span>
+
+                            <div class="photo-actions">
+                                <button class="small-btn view-photo">
+                                    View
+                                </button>
+
+                                <button class="small-btn download-photo">
+                                    Download
+                                </button>
+                            </div>
+                        </div>
+
+                    </article>
+
+
+                    <article class="photo-card">
+
+                        <div class="photo-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=85"
+                                alt="Wedding ceremony"
+                            >
+                        </div>
+
+                        <div class="photo-info">
+                            <span>Wedding Moment 02</span>
+
+                            <div class="photo-actions">
+                                <button class="small-btn view-photo">
+                                    View
+                                </button>
+
+                                <button class="small-btn download-photo">
+                                    Download
+                                </button>
+                            </div>
+                        </div>
+
+                    </article>
+
+
+                    <article class="photo-card">
+
+                        <div class="photo-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85"
+                                alt="Wedding table"
+                            >
+                        </div>
+
+                        <div class="photo-info">
+                            <span>Wedding Moment 03</span>
+
+                            <div class="photo-actions">
+                                <button class="small-btn view-photo">
+                                    View
+                                </button>
+
+                                <button class="small-btn download-photo">
+                                    Download
+                                </button>
+                            </div>
+                        </div>
+
+                    </article>
+
+
+                    <article class="photo-card">
+
+                        <div class="photo-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=900&q=85"
+                                alt="Wedding ceremony outdoors"
+                            >
+                        </div>
+
+                        <div class="photo-info">
+                            <span>Wedding Moment 04</span>
+
+                            <div class="photo-actions">
+                                <button class="small-btn view-photo">
+                                    View
+                                </button>
+
+                                <button class="small-btn download-photo">
+                                    Download
+                                </button>
+                            </div>
+                        </div>
+
+                    </article>
+
+
+                    <article class="photo-card">
+
+                        <div class="photo-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=900&q=85"
+                                alt="Bride and groom"
+                            >
+                        </div>
+
+                        <div class="photo-info">
+                            <span>Wedding Moment 05</span>
+
+                            <div class="photo-actions">
+                                <button class="small-btn view-photo">
+                                    View
+                                </button>
+
+                                <button class="small-btn download-photo">
+                                    Download
+                                </button>
+                            </div>
+                        </div>
+
+                    </article>
+
+
+                    <article class="photo-card">
+
+                        <div class="photo-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85"
+                                alt="Wedding celebration"
+                            >
+                        </div>
+
+                        <div class="photo-info">
+                            <span>Wedding Moment 06</span>
+
+                            <div class="photo-actions">
+                                <button class="small-btn view-photo">
+                                    View
+                                </button>
+
+                                <button class="small-btn download-photo">
+                                    Download
+                                </button>
+                            </div>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             PHOTOGRAPHER PAGE
+        ========================================== -->
+
+        <section id="photographer" class="page-section photographer-section">
+
+            <div class="container photographer-layout">
+
+                <div class="photographer-content">
+
+                    <span class="eyebrow">
+                        FOR PHOTOGRAPHERS
+                    </span>
+
+                    <h2>
+                        Your Photos.
+                        <em>Beautifully Delivered.</em>
+                    </h2>
+
+                    <p>
+                        Upload wedding photos, create guest access
+                        and make it easy for everyone to discover
+                        their special moments.
+                    </p>
+
+                    <div class="photographer-actions">
+
+                        <a
+                            href="#dashboard"
+                            class="btn btn-primary"
+                        >
+                            Create Wedding
+                        </a>
+
+                        <button
+                            class="btn btn-secondary"
+                            id="uploadPhotosButton"
+                        >
+                            Upload Photos
+                        </button>
+
+                        <button
+                            class="btn btn-secondary"
+                            id="manageWeddingButton"
+                        >
+                            Manage Wedding
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="login-card">
+
+                    <span class="card-label">
+                        PHOTOGRAPHER ACCESS
+                    </span>
+
+                    <h3>
+                        Photographer Dashboard
+                    </h3>
+
+                    <p>
+                        Frontend prototype — authentication will
+                        be added later.
+                    </p>
+
+                    <a
+                        href="#dashboard"
+                        class="btn btn-dark full-width"
+                    >
+                        Open Dashboard
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             PHOTOGRAPHER DASHBOARD
+        ========================================== -->
+
+        <section id="dashboard" class="page-section dashboard-section">
+
+            <div class="container">
+
+                <div class="dashboard-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            PHOTOGRAPHER DASHBOARD
+                        </span>
+
+                        <h2>
+                            Alex & Sarah
+                        </h2>
+
+                        <p>
+                            12 December 2026
+                        </p>
+
+                    </div>
+
+                    <button class="btn btn-primary">
+                        Upload Photos
+                    </button>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <span>Total Photos</span>
+                        <strong>1,248</strong>
+                        <small>Uploaded</small>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>Matched Guests</span>
+                        <strong>86</strong>
+                        <small>Guests discovered</small>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>Processing</span>
+                        <strong>78%</strong>
+                        <small>Photo processing</small>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>Wedding Status</span>
+                        <strong>Live</strong>
+                        <small>Guest access enabled</small>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-grid">
+
+                    <!-- Upload -->
+                    <div class="dashboard-card">
+
+                        <div class="dashboard-card-header">
+
+                            <div>
+                                <span class="card-label">
+                                    PHOTO MANAGEMENT
+                                </span>
+
+                                <h3>
+                                    Upload Photos
+                                </h3>
+                            </div>
+
+                            <span class="dashboard-icon">
+                                ↑
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Upload your wedding photography
+                            collection here.
+                        </p>
+
+                        <button class="btn btn-dark">
+                            Select Photos
+                        </button>
+
+                    </div>
+
+
+                    <!-- QR -->
+                    <div class="dashboard-card">
+
+                        <div class="dashboard-card-header">
+
+                            <div>
+                                <span class="card-label">
+                                    GUEST ACCESS
+                                </span>
+
+                                <h3>
+                                    Generate QR Code
+                                </h3>
+                            </div>
+
+                            <span class="dashboard-icon">
+                                #
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Guests can scan this QR code to find
+                            their wedding photos.
+                        </p>
+
+                        <a
+                            href="#qr"
+                            class="btn btn-dark"
+                        >
+                            View QR Code
+                        </a>
+
+                    </div>
+
+
+                    <!-- Wedding -->
+                    <div class="dashboard-card">
+
+                        <div class="dashboard-card-header">
+
+                            <div>
+                                <span class="card-label">
+                                    WEDDING
+                                </span>
+
+                                <h3>
+                                    View Wedding
+                                </h3>
+                            </div>
+
+                            <span class="dashboard-icon">
+                                →
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Preview the guest experience and
+                            wedding page.
+                        </p>
+
+                        <a
+                            href="#guest"
+                            class="btn btn-dark"
+                        >
+                            View Wedding
+                        </a>
+
+                    </div>
+
+
+                    <!-- Settings -->
+                    <div class="dashboard-card">
+
+                        <div class="dashboard-card-header">
+
+                            <div>
+                                <span class="card-label">
+                                    SETTINGS
+                                </span>
+
+                                <h3>
+                                    Wedding Settings
+                                </h3>
+                            </div>
+
+                            <span class="dashboard-icon">
+                                ⚙
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Manage your wedding information and
+                            guest experience.
+                        </p>
+
+                        <button class="btn btn-dark">
+                            Settings
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             QR CODE SECTION
+        ========================================== -->
+
+        <section id="qr" class="page-section qr-section">
+
+            <div class="container qr-layout">
+
+                <div class="qr-content">
+
+                    <span class="eyebrow">
+                        GUEST ACCESS
+                    </span>
+
+                    <h2>
+                        Guest
+                        <em>QR Code</em>
+                    </h2>
+
+                    <p>
+                        Guests can scan this QR code to find their
+                        wedding photos.
+                    </p>
+
+                    <p class="muted">
+                        This is a visual placeholder for the
+                        prototype. Later, this will become a real
+                        QR code linked to the wedding guest page.
+                    </p>
+
+                    <button
+                        class="btn btn-primary"
+                        id="copyGuestLink"
+                    >
+                        Copy Guest Link
+                    </button>
+
+                </div>
+
+
+                <div class="qr-card">
+
+                    <div class="qr-placeholder">
+
+                        <div class="qr-pattern">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+                    </div>
+
+                    <strong>
+                        Alex & Sarah
+                    </strong>
+
+                    <span>
+                        Scan to find your photos
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         PHOTO MODAL
+    ========================================== -->
+
+    <div
+        class="modal"
+        id="photoModal"
+        aria-hidden="true"
+    >
+
+        <div class="modal-backdrop"></div>
+
+        <div class="modal-content">
+
+            <button
+                class="modal-close"
+                id="modalClose"
+                aria-label="Close photo"
+            >
+                ×
+            </button>
+
+            <img
+                id="modalImage"
+                src=""
+                alt="Wedding photo preview"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-content">
+
+            <div>
+
+                <a href="#home" class="logo footer-logo">
+                    <span class="logo-mark">W</span>
+                    <span>Wedding Photo Finder</span>
+                </a>
+
+                <p>
+                    Your moments. Your memories.
+                    Your photos.
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <a href="#guest">Guest</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#photographer">Photographer</a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                © 2026 Wedding Photo Finder. Frontend prototype.
+            </p>
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
